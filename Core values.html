@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Values</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url("img/yo neutro (2).jpg") no-repeat center center/cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: rgba(0,0,0,0.8);
+      color: white;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #38bdf8;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-info h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #38bdf8;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 40vh;
+      width: 50%;
+      margin: 6vh auto;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease;
+      box-shadow: 0 0 25px rgba(0,224,255,0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    .hero span {
+      color: #00e0ff;
+      font-weight: bold;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #d1d5db;
+      max-width: 600px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Secciones en cuadro */
+    section.en-cuadro {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      text-align: center;
+      background: rgba(0,0,0,0.5);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,224,255,0.2);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.en-cuadro.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section.en-cuadro h2 {
+      color: #00e0ff;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Carrusel */
+    .values-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      scroll-behavior: smooth;
+      padding: 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: #00e0ff rgba(255,255,255,0.1);
+    }
+
+    .values-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .values-container::-webkit-scrollbar-thumb {
+      background: #00e0ff;
+      border-radius: 4px;
+    }
+
+    .value-card {
+      flex: 0 0 250px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: transform 0.4s ease, box-shadow 0.4s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .value-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0,224,255,0.6);
+    }
+
+    .value-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid #00e0ff;
+      box-shadow: 0 0 15px rgba(0,224,255,0.4);
+    }
+
+    .value-card h3 {
+      color: #00e0ff;
+      margin-bottom: 0.7rem;
+      font-size: 1.3rem;
+    }
+
+    /* Timeline (sin cuadro) */
+    #activities {
+      max-width: 900px;
+      margin: 5rem auto;
+      padding: 2rem;
+      text-align: left;
+    }
+
+    #activities h2 {
+      color: #00e0ff;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 10px rgba(0,224,255,0.4);
+    }
+
+    .timeline {
+      border-left: 3px solid #00e0ff;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .activity {
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .activity::before {
+      content: "➤";
+      position: absolute;
+      left: -2.4rem;
+      top: 0;
+      color: #00e0ff;
+      font-size: 1.5rem;
+    }
+
+    .activity h3 {
+      color: #00e0ff;
+      font-size: 1.3rem;
+    }
+
+    .activity p {
+      color: #e2e8f0;
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0,0,0,0.9);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <div class="profile-pic">
+          <img src="img/logo redondo.png" alt="Logo Xochilt">
+        </div>
+        <div class="brand-info">
+          <h1>Xochilt Martínez</h1>
+          <p class="subtitle">Senior Portafolio</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="English page.html">English</a></li>
+        <li><a href="Core values.html">Valores</a></li>
+        <li><a href="IT page.html">IT</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1><span>Core</span> Values</h1>
+    <p>Bienvenido al área de Valores. Aquí comparto mis actividades y proyectos realizados durante mi formación en ¡Supérate! con orgullo y dedicación.</p>
+  </section>
+
+  <!-- Carrusel de Valores -->
+  <section id="values" class="en-cuadro">
+    <h2>Mis actividades</h2>
+    <div class="values-container">
+      <div class="value-card"><img src="img/joy.png" class="value-img"><h3>¡Supérate! Emprende</h3><p>Creación de una venta en colaboración de 4 estudiantes.</p></div>
+      <div class="value-card"><img src="img/shark.png" class="value-img"><h3>Shark Tank</h3><p>Creación de un producto innovador para resolver una necesidad social.</p></div>
+      <div class="value-card"><img src="img/Portafolio 1-2-3.jpg" class="value-img"><h3>Convivencia pacífica</h3><p>Campaña contra el bullying en CESAM y Jorge Lardé.</p></div>
+      <div class="value-card"><img src="img/cafe.jpg" class="value-img"><h3>Date un Café</h3><p>Fomento de comprensión y conexión con los demás.</p></div>
+      <div class="value-card"><img src="img/tx1d.jpg" class="value-img"><h3>TX1D</h3><p>Enseñanza sobre los 7 hábitos saludables de los adolescentes.</p></div>
+      <div class="value-card"><img src="img/huevo.jpg" class="value-img"><h3>Bebé cascarón</h3><p>Cuidamos de un bebé cascarón por unas semanas.</p></div>
+      <div class="value-card"><img src="img/vocacion.jpg" class="value-img"><h3>Formación Vocacional</h3><p>Descubrí qué carrera deseo tomar en la UES.</p></div>
+      <div class="value-card"><img src="img/interviewww.jpg" class="value-img"><h3>Entrevistas</h3><p>Viva y Foundever nos entrevistaron.</p></div>
+      <div class="value-card"><img src="img/integrar.jpg" class="value-img"><h3>Integración de estudiantes</h3><p>Proponer actividades creativas.</p></div>
+      <div class="value-card"><img src="img/ted.png" class="value-img"><h3>Poder de la Gratitud</h3><p>Agradecimiento por las oportunidades de aprendizaje.</p></div>
+    </div>
+  </section>
+
+  <!-- Timeline fuera del cuadro -->
+  <section id="activities">
+    <h2>Descubriendo Valores</h2>
+    <div class="timeline">
+      <div class="activity"><h3>2023 - Excelencia</h3><p>Me integré al programa con entusiasmo, adaptándome a un ambiente colaborativo y con la disposición de ser parte de la excelencia que caracteriza al programa.</p></div>
+      <div class="activity"><h3>2024 - Liderazgo</h3><p>Desarrollé proyectos que reflejaron el trabajo en equipo y la resolución de problemas detrás de una buena líder.</p></div>
+      <div class="activity"><h3>2025 - Superación</h3><p>Luego de todo el esfuerzo, este año he logrado la meta en común de todos los jóvenes ¡Supérate!, superarnos.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Xochilt Martínez | Portafolio ¡Supérate!</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section.en-cuadro");
+    window.addEventListener("scroll", () => {
+      const windowHeight = window.innerHeight;
+      sections.forEach(sec => {
+        const sectionTop = sec.getBoundingClientRect().top;
+        if (sectionTop < windowHeight - 100) sec.classList.add("visible");
+      });
+    });
+  </script>
+</body>
+</html>

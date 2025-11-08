@@ -1,0 +1,331 @@
+/* ===== RESET GENERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+  background: url(img/AZUL.jpg);
+}
+
+/* ===== NAVBAR ===== */
+header {
+  background: #0f172a;
+  color: white;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  background-color: #1e293b;
+}
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-info h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: #dbeafe;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+.nav-links li a:hover {
+  color: #3b82f6;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* RESPONSIVE NAV */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #0f172a;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 180px;
+    padding: 15px;
+  }
+
+  .nav-links.active { display: flex; }
+  .menu-toggle { display: block; }
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  background: url('img/original.jpg') no-repeat center center/cover; /* Imagen exclusiva del inicio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+.hero-text h1 { font-size: 3rem; }
+.hero-text span { color: #4da6ff; }
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: #4da6ff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+}
+.btn:hover { background: #3385d6; transform: scale(1.05); }
+
+/* ===== PROJECTS ===== */
+.projects {
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #ffffff;
+  background: url('img/yo neutro (2).jpg') no-repeat center center/cover;
+}
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+.project-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.flip-card {
+  background: transparent;
+  width: 350px;
+  height: 250px;
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.flip-back {
+  background: linear-gradient(135deg, #010101, #0247b6);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background: url(img/yo\ neutro\ \(2\).jpg);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Carrusel 3D */
+.about .carousel {
+  position: relative;
+  width: 500px;
+  height: 250px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+margin: 40px auto 15px auto;           /* Centra horizontalmente */
+  display: flex;
+  justify-content: center;      /* Centra contenido interno */
+  align-items: center;
+  left: 40%;
+  transform: translateX(-50%);  /* Asegura que esté perfectamente centrado */
+
+}
+.about .carousel img {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* Posiciones 3D */
+.img-left {
+  transform: translateX(-220px) rotateY(30deg) scale(0.8);
+  opacity: 0.7;
+  z-index: 1;
+}
+.img-center {
+  transform: translateX(0) rotateY(0deg) scale(1);
+  opacity: 1;
+  z-index: 3;
+}
+.img-right {
+  transform: translateX(220px) rotateY(-30deg) scale(0.8);
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.about .info {
+  margin-top: 2px;
+  background: rgba(255,255,255,0.1);
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 50%;
+  text-align: center;
+  font-size: 1.2rem;
+  backdrop-filter: blur(6px);
+  min-height: 10px;
+  transition: all 0.4s ease;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+.info-box {
+  margin-top:5px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .project-grid { flex-direction: column; align-items: center; }
+  .flip-card { width: 90%; }
+  .about .carousel { width: 90%; height: 250px; }
+}
+/* ===== PROJECTS ===== */
+.projects {
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #ffffff;
+  background: url('img/yo neutro (2).jpg') no-repeat center center/cover;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* === DISEÑO DE PROYECTOS EN COLUMNAS === */
+.project-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-item {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.project-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-item h3 {
+  margin-top: 1rem;
+  color: #4da6ff;
+  font-size: 1.3rem;
+}
+
+.project-item p {
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  color: #dbeafe;
+}

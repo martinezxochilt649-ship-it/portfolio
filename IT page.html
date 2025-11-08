@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My IT Portfolio</title>
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ===== BODY CON FONDO ===== */
+    body {
+      color: #fff;
+      background: url("img/AZUL.jpg") no-repeat center center fixed; /* 🔹 CAMBIA 'fondo.jpg' por el nombre real */
+      background-size: cover;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Efecto tecnológico animado encima del fondo */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(-45deg, rgba(0,0,50,0.7), rgba(0,20,60,0.7), rgba(0,10,40,0.7), rgba(0,0,30,0.7));
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== NAVBAR ===== */
+    header {
+      background: #0f172a;
+      color: white;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      background-color: #1e293b;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-info h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #3b82f6;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0f172a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 180px;
+        padding: 15px;
+      }
+
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+
+    /* ===== INTRO BOX ===== */
+    .intro-box {
+      background: rgba(0,0,0,0.6);
+      border: 2px solid #0ff;
+      color: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      max-width: 650px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,255,255,0.3);
+    }
+
+    .intro-box h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #00e0ff;
+      text-shadow: 0 0 15px #00e0ff;
+    }
+
+    .intro-box p {
+      font-size: 1.1rem;
+      color: #f1f1f1;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-box a {
+      background-color: #00e0ff;
+      color: #000;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .intro-box a:hover {
+      background-color: #90e0ef;
+      transform: scale(1.05);
+    }
+
+    /* ===== PROJECT SECTIONS ===== */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 5rem 8%;
+      transition: all 1s ease;
+      opacity: 0;
+      transform: translateY(60px);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+      max-width: 1000px;
+    }
+
+    .project:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .project img {
+      width: 200px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,255,255,0.4);
+      transition: transform 0.5s ease;
+    }
+
+    .project img:hover {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      flex: 1;
+      color: #fff;
+    }
+
+    .project-info h2 {
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff;
+      margin-bottom: 1rem;
+    }
+
+    .project-info p {
+      line-height: 1.6;
+    }
+
+    /* Divider */
+    .divider {
+      width: 60%;
+      height: 2px;
+      margin: 4rem auto;
+      background: linear-gradient(to right, transparent, #0ff, transparent);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,0,0,0.9);
+      border-top: 2px solid #0ff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <div class="profile-pic">
+          <img src="img/logo redondo.png" alt="Foto de perfil de Xochilt Yamileth Martínez Granados">
+        </div>
+        <div class="brand-info">
+          <h1>Xochilt Martínez</h1>
+          <p class="subtitle">Senior Portafolio</p>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="English page.html">English</a></li>
+        <li><a href="Core values.html">Valores</a></li>
+        <li><a href="IT page.html">IT</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- Cuadro de inicio -->
+  <section id="home">
+    <div class="intro-box">
+      <h2>Informática <span></span></h2>
+      <p>Es un placer compartir mis proyectos relacionados con tecnología innovadora (2023 – 2025)</p>
+      <a href="#project1">Ver proyectos</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Proyectos -->
+  <section class="project" id="project1">
+    <img src="img/hackaton.jpg" alt="Hackatón">
+    <div class="project-info">
+      <h2>Hackatón</h2>
+      <p>Desarrollamos una aplicación web para resolver un problema social real en El Salvador, aplicando innovación, trabajo en equipo y diseño funcional. Cheapp fue la aplicación creada para ayudar a identificar los mercados y precios más accesibles para los consumidores.</p>
+    </div>
+  </section>
+
+  <section class="project" id="project3">
+    <img src="img/par.png" alt="Ciberseguridad">
+    <div class="project-info">
+      <h2>Par o Impar/ Club</h2>
+      <p>Durante el Club de Programación con teacher Bryan, se nos asignó hacer una página web que nos mostrara si el número que nosotros escribímos era par o impar. Con ello poner en práctica nuetsros conocimientos en css.</p>
+    </div>
+  </section>
+
+  <section class="project" id="project3">
+    <img src="img/calcu.png" alt="Ciberseguridad">
+    <div class="project-info">
+      <h2>Calculadora</h2>
+      <p> Para esta actividad creamos una calculadora con los conocimientos básicos de html y css, poniéndole un toque personal a cada proyecto de forma individual.</p>
+    </div>
+  </section>
+  <section class="project" id="project3">
+    <img src="img/excel.png" alt="Prácticas MOS Excel">
+    <div class="project-info">
+      <h2>MOS Prácticas</h2>
+      <p>Realicé videos, donde hice mis prácticas para el MOS Excel realizado en 2024, la enseñanza me ayudó a obtener un buen puntaje en la certificación.</p>
+    </div>
+  </section>
+  <section class="project" id="project3">
+    <img src="img/malala (2).png" alt="Ciberseguridad">
+    <div class="project-info">
+      <h2>Juego Pokemón</h2>
+      <p>Creamos un juego de Pokemón con ayuda de tutoriales en línea para conseguir movimientos, todo fue realidazo con código y elementos de JavaScript</p>
+    </div>
+  </section>
+
+  <section class="project" id="project3">
+    <img src="img/sol.jpg" alt="Certificación Excel">
+    <div class="project-info">
+      <h2>Certificación Excel</h2>
+      <p>En el año 2024 realizamos nuestra certificación oficial de Excel y toda la promoción obtuvo excelentes resultados gracias a las constantes prácticas vista en clases.</p>
+    </div>
+  </section>
+   <section class="project" id="project3">
+    <img src="img/certiJS.jpg" alt="Ciberseguridad">
+    <div class="project-info">
+      <h2>Certificación JS</h2>
+      <p>Después de varios días preparándonos, iniciamos el año 2025 con nuestra ITS, yo me certifiqué en la ruta de JavaScript con un buen puntaje./p>
+    </div>
+  </section>
+    <section class="project" id="project2">
+    <img src="img/expo tech.jpg" alt="Actividad tecnológica">
+    <div class="project-info">
+      <h2>Expo tech</h2>
+      <p>Desarrollamos una app llamada Ask U, que tenía como objetivo, preparar a las personas para las entrevistas de trabajo  y conocer sus habilidades que le permite ser un buen trabajador.</p>
+    </div>
+  </section>
+
+  <footer>
+<p>&copy; 2025 Xochilt Martínez | Portafolio ¡Supérate!</p>
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < windowHeight - 100) sec.classList.add("visible");
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>

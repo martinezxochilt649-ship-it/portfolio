@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Projects Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: url("img/yo\ neutro\ \(2\).jpg") no-repeat center center/cover;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background: #0f172a;
+      color: white;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      background-color: #1e293b;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-info h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #3b82f6;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0f172a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 180px;
+        padding: 15px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Timeline Section (3 years) */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: #00e5ff;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  animation: fadeIn 2s ease;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  transform: translateX(-10%);
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  transform: translateX(10%);
+}
+
+.timeline-item h3 {
+  color: #00e5ff;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  color: #d6d6d6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: url(img/yo\ neutro\ \(2\).jpg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      animation: zoomBg 20s infinite alternate ease-in-out;
+    }
+
+    @keyframes zoomBg {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    .hero-text {
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 15px;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text span {
+      color: #00e5ff;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      background: #00e5ff;
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #00bcd4;
+      color: #fff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section titles */
+    section {
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 50%;
+      background: #00e5ff;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 1rem;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-card h3 {
+      margin: 1rem 0 0.5rem;
+      color: #00e5ff;
+    }
+
+    .project-card p {
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.8);
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <div class="profile-pic">
+          <img src="img/logo redondo.png" alt="Foto de perfil">
+        </div>
+        <div class="brand-info">
+          <h1>Xochilt Martínez</h1>
+          <p class="subtitle">Senior Portafolio</p>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+     <li><a href="index.html">Home</a></li>
+        <li><a href="English page.html">English</a></li>
+        <li><a href="Core values.html">Valores</a></li>
+        <li><a href="IT page.html">IT</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>English <span>Projects</span></h1>
+      <p>It’s a pleasure for me to share my activities in this area. (2023 – 2025)</p>
+      <a href="#projects" class="btn">Projects</a>
+    </div>
+  </section>
+
+  <!-- FRESHMAN -->
+  <section id="projects">
+    <h2>Freshman English Projects</h2>
+    <div class="project-grid">
+      <!-- 9 proyectos -->
+      <div class="project-card"><img src="img/My timeline.jpg"><h3>Línea del tiempo</h3><p>Compartir mi línea del tiempo en el año 2023.</p></div>
+      <div class="project-card"><img src="img/viaggio.jpg"><h3>Travel Agency</h3><p>Agencia de viajes simulada.</p></div>
+      <div class="project-card"><img src="img/food.jpg"><h3>Wasted Food</h3><p>Consejos para reducir el desperdicio de comida.</p></div>
+       <div class="project-card"><img src="img/video1.png"><h3>YouTube Video</h3><p>Grabamos un video para un canal de YouTube.</p></div>
+      <div class="project-card"><img src="img/Venice Carnival, Italy.jpg"><h3>Holiday</h3><p>Presentación del Carnaval de Italia.</p></div>
+      <div class="project-card"><img src="img/journey.jpg"><h3>JTH</h3><p>Dramatización con personajes históricos.</p></div>
+    </section>
+
+  <!-- JUNIOR -->
+  <section id="junior">
+    <h2>Junior English Projects</h2>
+    <div class="project-grid">
+      <div class="project-card"><img src="img/casa.jpg"><h3>Casa del Futuro</h3><p>Con IA creamos una casa que podría existir en el futuro.</p></div>
+      <div class="project-card"><img src="img/charity.jpg"><h3>Charity</h3><p>Campaña de ayuda para animales de las calles.</p></div>
+      <div class="project-card"><img src="img/Lesson 6 Vocabulary cards.png"><h3>Essential Lesson</h3><p>Desarrollo de presentación explicativa de vocabulario.</p></div>
+      <div class="project-card"><img src="img/interview.jpg"><h3>Entrevistas</h3><p>Prácticas de Entrevistas laborales</p></div>
+      <div class="project-card"><img src="img/robot.jpg"><h3>Expo Logros</h3><p>Uso de robótica e innovación para demostrar nuestro aprendizaje.</p></div>
+      <div class="project-card"><img src="img/holder.jpg"><h3>Device Holder</h3><p>Diseño 3D funcional para sostener dispositivos.</p></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- SENIOR -->
+  <section id="senior">
+    <h2>Senior Projects</h2>
+    <div class="project-grid">
+      <div class="project-card"><img src="img/Storytelling.png"><h3>Storyelling</h3><p>Hablar a través de imágenes y expresar una historia.</p></div>
+      <div class="project-card"><img src="img/Debate.png"><h3>Debate</h3><p>Simulación dedebate público y calificado.</p></div>
+      <div class="project-card"><img src="img/foro.jpg"><h3>Forum</h3><p>Desarrollo de un forum interno entre estudiantes..</p></div>
+      <div class="project-card"><img src="img/TED talk.jpg"><h3>TED Talk</h3><p>Análisis de lectura crítica.</p></div>
+      <div class="project-card"><img src="img/expo tech.jpg"><h3>Expo TECH</h3><p>Presentación formal frente a público.</p></div>
+      <div class="project-card"><img src="img/TOEIC  LR presencial-1.png"><h3>Certificaciones</h3><p>Certificación INternacional L&R y S&W.</p></div>
+    </div>
+  </section>
+
+ <!-- TIMELINE -->
+<section id="timeline">
+  <h2>My 3-Year English Journey</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>2023 – Freshman Year</h3>
+      <p>Journey Through History and first public English presentations with our parents.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2024 – Junior Year</h3>
+      <p>Developing fluency through debates, podcasts and teamwork projects.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2025 – Senior Year</h3>
+      <p>Advanced presentations, public speaking, and professional simulations.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Xochilt Martínez | Portafolio ¡Supérate!</p>
+  </footer>
+
+</body>
+</html>

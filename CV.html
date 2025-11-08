@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV - Xochilt Yamileth Martínez Granados</title>
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Librerías PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: url(img/yo\ neutro\ \(2\).jpg);
+      color: #333;
+    }
+
+    header {
+      background: #333;
+      color: rgba(29, 29, 116, 0.505);
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+   /* Navbar */
+    header {
+      background: #0f172a;
+      color: white;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+       padding: 2px 25px; 
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #e2e8f0;
+      background-color: #1e293b;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-info h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: #dbeafe;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #3b82f6;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #0f172a;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 180px;
+        padding: 15px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+
+    #cv {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background: rgba(19, 25, 104, 0.342);
+      color: #dbeafe;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .info-personal {
+      width: 35%;
+      text-align: left;
+      padding-right: 30px;
+      border-right: 2px solid #240c4cab;
+    }
+
+    .info-personal img {
+      width: 100%;
+      max-width: 180px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .info-personal h3 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .contenido {
+      width: 65%;
+      padding-left: 30px;
+    }
+
+    h1 {
+      color: #aeacac;
+      margin-top: 0;
+      font-size: 28px;
+    }
+
+    h2 {
+      color: #8a8888;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 25px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 20px auto;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+ padding: 0.5rem;
+}
+  </style>
+</head>
+ <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <div class="profile-pic">
+          <img src="img/logo redondo.png" alt="Foto de perfil">
+        </div>
+        <div class="brand-info">
+          <h1>Xochilt Martínez</h1>
+          <p class="subtitle">Senior Portafolio</p>
+        </div>
+      </div>
+      <ul class="nav-links" id="navLinks">
+     <li><a href="index.html">Home</a></li>
+        <li><a href="English page.html">English</a></li>
+        <li><a href="Core values.html">Valores</a></li>
+        <li><a href="IT page.html">IT</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+  </header>
+
+
+  <section id="cv">
+    <!-- Información personal -->
+    <div class="info-personal">
+      <img src="img/yo3.jpg" alt="Foto de Xochilt">
+      <h3>Xochilt Yamileth Martínez Granados</h3>
+      <p><strong>Edad:</strong> 17 años</p>
+      <p><strong>Teléfono:</strong> +503 7975 5249</p>
+      <p><strong>Correo:</strong> xochiltyamilethmartinez@gmail.com</p>
+      <p><strong>Dirección:</strong> San Martín, El Salvador</p>
+      <p><strong>LinkedIn:</strong>xochiltmartinez</p>
+    </div>
+
+    <!-- Contenido del CV -->
+    <div class="contenido">
+      <h2>Perfil Profesional</h2>
+      <p>Soy una persona responsable, organizada y con facilidad para trabajar en equipo. Me gusta aprender nuevas herramientas tecnológicas y aplicarlas a proyectos prácticos.</p>
+
+      <h2>Formación Académica</h2>
+      <p><strong>Complejo Educativo San Martín</strong> — Diplomado en Cosmetología (2024 - Actualidad)</p>
+
+      <h2>Experiencia Laboral</h2>
+      <p><strong>Líder de proyectos</strong> — CESAM (2024 - 2025)</p>
+      <p>Apoyo en la gestión y documentación de proyectos relacionados con medio ambiente.</p>
+
+      <h2>Habilidades</h2>
+      <ul>
+        <li>Microsoft Office y Power BI</li>
+        <li>Diseño de páginas web (HTML, CSS, JS)</li>
+        <li>Trabajo en equipo y liderazgo</li>
+      </ul>
+    </div>
+  </section>
+
+  <button id="btnDescargar">Descargar CV en PDF</button>
+
+  <footer>
+     <p>&copy; 2025 Xochilt Martínez | Portafolio ¡Supérate!</p>
+  </footer>
+
+<!-- ---------- Script robusto para descargar el CV en PDF ---------- -->
+<script>
+document.getElementById('btnDescargar').addEventListener('click', async () => {
+  const container = document.getElementById('cv');
+  const btn = document.getElementById('btnDescargar');
+
+  btn.disabled = true;
+  btn.textContent = 'Generando PDF...';
+
+  try {
+    // Asegurar que jsPDF esté disponible
+    const jsPDFLib = window.jspdf || window.jspPDF;
+    if (!jsPDFLib) {
+      alert('Error: jsPDF no se cargó correctamente.');
+      console.error('window.jspdf no encontrado');
+      btn.disabled = false;
+      btn.textContent = 'Descargar CV en PDF';
+      return;
+    }
+
+    const { jsPDF } = jsPDFLib;
+
+    // Capturar el contenido con html2canvas
+    const canvas = await html2canvas(container, {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#ffffff" // Fondo blanco para evitar transparencia
+    });
+
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = 210;
+    const imgHeight = (canvas.height * pageWidth) / canvas.width;
+
+    let heightLeft = imgHeight;
+    let position = 0;
+
+    pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
+    heightLeft -= 297;
+
+    while (heightLeft > 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, position, pageWidth, imgHeight);
+      heightLeft -= 297;
+    }
+
+    pdf.save('CV_Xochilt_Yamileth_Martinez.pdf');
+  } catch (error) {
+    console.error('Error al generar el PDF:', error);
+    alert('No se pudo generar el PDF. Verifica que las librerías estén cargadas.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Descargar CV en PDF';
+  }
+});
+</script>
+
+
+</body>
+</html>

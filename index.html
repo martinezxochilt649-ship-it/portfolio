@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="estilo.css" />
+  <style>
+    /* === Carrusel 3D Adaptado === */
+    .about .carousel {
+      position: relative;
+      width: 600px;
+      height: 350px;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      margin: 40px auto;
+    }
+
+    .about .carousel img {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      object-fit: cover;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .about .info {
+      margin-top: 5px;
+      background: rgba(255,255,255,0.1);
+      padding: 2px 10px;
+      border-radius: 10px;
+      width: 50%;
+      text-align: center;
+      font-size: 1.2rem;
+      backdrop-filter: blur(6px);
+      min-height: 20px;
+      transition: all 0.4s ease;
+      color: #fff;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Posiciones 3D */
+    .img-left {
+      transform: translateX(-220px) rotateY(30deg) scale(0.8);
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    .img-center {
+      transform: translateX(0) rotateY(0deg) scale(1);
+      opacity: 1;
+      z-index: 3;
+    }
+
+    .img-right {
+      transform: translateX(220px) rotateY(-30deg) scale(0.8);
+      opacity: 0.7;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <div class="profile-pic">
+          <img src="img/logo redondo.png" alt="Foto de perfil de Xochilt Yamileth Martínez Granados">
+        </div>
+        <div class="brand-info">
+          <h1>Xochilt Martínez</h1>
+          <p class="subtitle">Senior Portafolio</p>
+        </div>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Portafolio IT.html">Home</a></li>
+        <li><a href="English page.html">English</a></li>
+        <li><a href="Core values.html">Valores</a></li>
+        <li><a href="IT page.html">IT</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-text reveal fade-zoom">
+      <h1>My <span>Portfolio</span></h1>
+      <p>Inglés | Valores | Informática</p>
+      <br>
+      <a href="#projects" class="btn">My experience</a>
+    </div>
+  </section>
+
+  <!-- Projects Section (actualizado) -->
+  <section id="projects" class="projects reveal fade-up">
+    <h2>Materias</h2>
+    <div class="project-columns">
+      <div class="project-item">
+        <img src="img/6.png" alt="valores">
+        <h3>VALORES</h3>
+        <p>En esta materia nos conocemos a nosotros mismos y nos impulsa a practicar valores morales útiles para nuestra vida diaria, más allá de ser una materia, es también lo que nos identifica como jóvenes ¡Supérate! Y nos permite levantar la barra con la mejor actitud, resaltando la humildad e integridad en cada uno.</p>
+      </div>
+
+      <div class="project-item">
+        <img src="img/7.png" alt="Rooster 2024">
+        <h3>INGLÉS</h3>
+        <p>En la materia de inglés recibimos material necesario para desarrollara nuestras habilidades en este segundo idioma, desde formación básica, hasta Inglés avanzado. Practicamos a través de presentaciones, actividades, juegos, uso diario. El objetivo es preparar a los jóvenes para las certificaciones de Inglés.</p>
+      </div>
+
+      <div class="project-item">
+        <img src="img/8.png" alt="Project 3">
+        <h3>INFORMÁTICA</h3>
+        <p> It imparte temas como las rutas de programación, el uso de Excel, Power BI, Php, JS, conocimientos de Canva y otras herramientas en el área de tecnología e innovación, lo importante de esta materia es entender lo que hacemos y mostrar que todo el conocimiento se mantiene y nos ayuda a crear o mejorar proyectos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section con Carrusel 3D -->
+  <section id="about" class="about reveal fade-up">
+    <h2>3 años - Mil experiencias</h2>
+    <div class="about-container">
+      <div class="carousel">
+        <img src="img/yo1.jpg" alt="Foto 1" class="img-left" data-info="Mi primer año lleno de ilusión y aprendizaje fue una experiencia inolvidable." />
+        <img src="img/yo2.jpg" alt="Foto 2" class="img-center" data-info="Un momento especial compartiendo con mis compañeros Juniors, descubrí lo talentosa que soy." />
+        <img src="img/yo3.jpg" alt="Foto 3" class="img-right" data-info="Reflexionando sobre el crecimiento personal y profesional, pero sobre, disfrutando ser Senior 2025." />
+      </div>
+
+      <div class="info" id="infoBox">Haz click en una imagen para ver su descripción.</div>
+
+      <p>
+        Como joven ¡Supérate! Extiendo mi sincero agradecimiento a todo el staff del Centro por ser parte de mi crecimiento personal y académico durante los años 2023 – 2025. Principalmente a Miss Marielos y a la Familia donante por transformar mi vida vía educación. Es un orgullo ser parte del programa y compartir los proyectos más enriquecedores que he realizado durante mi beca, los cuales me han hecho desarrollar mis hbailidades en un segundo idioma y en la tecnología.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+       <p>&copy; 2025 Xochilt Martínez | Portafolio ¡Supérate!</p>
+  </footer>
+
+  <script>
+    // Menú móvil
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Carrusel 3D interactivo
+    const imgs = document.querySelectorAll(".about .carousel img");
+    const infoBox = document.getElementById("infoBox");
+    let positions = ["img-left", "img-center", "img-right"];
+
+    imgs.forEach((img, index) => {
+      img.addEventListener("click", () => {
+        if (index === 0) positions.unshift(positions.pop());
+        else if (index === 2) positions.push(positions.shift());
+        imgs.forEach((img, i) => img.className = positions[i]);
+        const centerImg = document.querySelector(".img-center");
+        infoBox.textContent = centerImg.getAttribute("data-info");
+      });
+    });
+  </script>
+</body>
+</html>
+
